@@ -1,6 +1,8 @@
 html{
+    
     --color-accent: oklch(70.188% 0.15761 352.647);
     accent-color: var(--color-accent);
+    color-scheme: light dark;
 }
 body {
     font: 100%/1.5 system-ui;
@@ -16,7 +18,8 @@ nav li {
 nav {
     display: flex;
     margin-bottom: 1em;
-    border-bottom: 1px solid oklch(80% 3% 200);
+    border-bottom: 1px solid var(--border-color);
+    --border-color: oklch(65% 3% 200 / 70%);
 }
 nav a {
     flex: 1;
@@ -30,7 +33,7 @@ img {
     height: auto;
 }
 nav a.current {
-    border-bottom: 0.4em solid oklch(80% 3% 200);
+    border-bottom: 0.4em solid var(--border-color);
     padding-bottom: 0.1em;
 }
 
@@ -134,4 +137,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .resume-page li::marker {
     color: var(--color-accent);
+}
+
+.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+}
+
+.color-scheme select {
+    font: inherit;
 }
