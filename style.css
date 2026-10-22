@@ -73,9 +73,24 @@ form button{
 }
 
 .projects article {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 3;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.projects article p {
+    margin: 0;
+}
+
+.projects article > a:last-child {
+    margin-top: auto;
+}
+
+.projects article img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 .projects h2 {
