@@ -6,10 +6,7 @@ function $$(selector, context = document) {
 
 let navLinks = $$("nav a");
 
-const BASE_PATH = 
-    location.hostname=== "localhost" || location.hostname === "127.0.0.1"
-        ? "/"
-        : "/portfolio";
+const BASE_PATH = new URL("./", import.meta.url).pathname;
 
 let pages = [
     {url:"",title:"Home"},
