@@ -78,3 +78,61 @@ select.addEventListener("input", function (event) {
     setColorScheme(colorScheme);
     localStorage.colorScheme = colorScheme;
 });
+
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error loading JSON:", error);
+  }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = "h2") {
+  containerElement.innerHTML = "";
+
+  // JSON 中的图片和链接路径，以 projects 文件夹为基准
+  const projectsBase = new URL("./projects/", import.meta.url);
+
+  for (const project of projects) {
+    const article = document.createElement("article");
+    const imageURL = new URL(project.image, projectsBase).href;
+    const projectURL = project.url
+      ? new URL(project.url, projectsBase).href
+      : "";
+
+    article.innerHTML = `
+      <${headingLevel}>
+        ${
+          projectURL
+            ? `<a href="${projectURL}">${project.title}</a>`
+            : project.title
+        }
+      </${headingLevel}>
+
+      ${
+        projectURL
+          ? `<a href="${projectURL}">
+               <img src="${imageURL}" alt="${project.title}">
+             </a>`
+          : `<img src="${imageURL}" alt="">`
+      }
+
+      <p>${project.description}</p>
+
+      ${projectURL ? `<a href="${projectURL}">View project →</a>` : ""}
+    `;
+
+    containerElement.appendChild(article);
+  }
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
