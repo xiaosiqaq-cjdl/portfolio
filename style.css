@@ -182,3 +182,119 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-size: 2rem;
 }
+
+.home-intro {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 150px;
+  align-items: center;
+  gap: 24px;
+  margin-block: 32px;
+}
+
+.home-intro .home-photo,
+.home-intro .home-avatar {
+  display: block;
+  width: 150px;
+  max-width: 100%;
+  height: 190px;
+}
+
+.home-intro .home-photo {
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.home-intro .home-avatar {
+  object-fit: contain;
+}
+
+.home-bio h1 {
+  margin: 0 0 8px;
+}
+
+@media (max-width: 700px) {
+  .home-intro {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+}
+
+.projects > article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+  gap: 0.8rem;
+}
+
+.projects > article > h2 {
+  grid-row: 1;
+  margin: 0;
+}
+
+.projects > article > img,
+.projects > article > a:has(img) {
+  grid-row: 2;
+}
+
+.projects > article > p {
+  grid-row: 3;
+  margin: 0;
+}
+
+.projects > article > a:last-child:not(:has(img)) {
+  grid-row: 4;
+  margin-top: 0;
+}
+
+.projects > article > img,
+.projects > article > a > img {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+}
+
+.personal-corner {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border: 1px solid #9875aa55;
+  border-radius: 16px;
+  background: #9875aa12;
+}
+
+.personal-corner h2 {
+  margin: 0 0 0.5rem;
+}
+
+.personal-corner > p {
+  margin: 0 0 1rem;
+}
+
+.personal-corner summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding-block: 0.5rem;
+}
+
+.personal-corner summary:hover {
+  text-decoration: underline;
+}
+
+.corner-content {
+  margin-top: 1rem;
+}
+
+.corner-content img {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 12px;
+}
+
+.corner-content p {
+  text-align: center;
+  font-size: 0.9rem;
+}
