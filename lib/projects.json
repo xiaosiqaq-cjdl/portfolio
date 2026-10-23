@@ -7,12 +7,12 @@
     "url": "./Project2/"
   },
   {
-    "title": "Facere illo omnis illum!",
-    "year": 2025,
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Harum iste, esse sint beatae nisi dolorum nesciunt magnam! Ipsam nemo beatae repudiandae quam veritatis repellendus ad? Minus voluptatum pariatur accusantium, dolor, officiis laudantium consectetur tempore laboriosam explicabo fugiat omnis.",
-    "url": ""
-  },
+  "title": "Project 1: Ultra-Processed Foods Across Supermarkets",
+  "year": 2026,
+  "image": "./Project1/cover.png",
+  "description": "Comparing predicted ultra-processed product shares across 17 food categories at Target, Walmart, and Whole Foods. A course project using GroceryDB data.",
+  "url": "./Project1/DSC209_Project1.pdf"
+ },
   {
     "title": "Error mollitia ipsa voluptatibus!",
     "year": 2025,
