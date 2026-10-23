@@ -97,7 +97,7 @@ export async function fetchJSON(url) {
 export function renderProjects(projects, containerElement, headingLevel = "h2") {
   containerElement.innerHTML = "";
 
-  // JSON 中的图片和链接路径，以 projects 文件夹为基准
+  // JSON 中的图片和链接路径是相对于 projects.js 文件的，因此我们需要使用 URL 构造函数来生成绝对路径
   const projectsBase = new URL("./projects/", import.meta.url);
 
   for (const project of projects) {
