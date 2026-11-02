@@ -1,187 +1,87 @@
-html{
-    
-    --color-accent: oklch(70.188% 0.15761 352.647);
-    accent-color: var(--color-accent);
-    color-scheme: light dark;
+/* ===== 全局与主题 ===== */
+
+html {
+  --color-accent: oklch(70.188% 0.15761 352.647);
+  accent-color: var(--color-accent);
+  color-scheme: light dark;
 }
+
 body {
-    font: 100%/1.5 system-ui;
-    max-width: 100ch;
-    margin-inline: auto;
-    padding: 1em;
+  font: 100%/1.5 system-ui;
+  max-width: 100ch;
+  margin-inline: auto;
+  padding: 1em;
 }
 
-nav ul,
-nav li {
-    display: contents;
+h1 {
+  font-size: 4em;
 }
-nav {
-    display: flex;
-    margin-bottom: 1em;
-    border-bottom: 1px solid var(--border-color);
-    --border-color: oklch(65% 3% 200 / 70%);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  text-wrap: balance;
 }
-nav a {
-    flex: 1;
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
-    padding: 0.5em;
-}
+
 img {
-    max-width: 100%;
-    height: auto;
-}
-nav a.current {
-    border-bottom: 0.4em solid var(--border-color);
-    padding-bottom: 0.1em;
-}
-
-nav a:hover {
-    border-bottom: 0.4em solid var(--color-accent);
-    padding-bottom: 0.1em;
+  max-width: 100%;
+  height: auto;
 }
 
 input,
 textarea,
-button{
-    font: inherit;
+button {
+  font: inherit;
 }
 
-form{
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1em;
+/* ===== 导航与主题切换 ===== */
+
+nav {
+  --border-color: oklch(65% 3% 200 / 70%);
+  display: flex;
+  margin-bottom: 1em;
+  border-bottom: 1px solid var(--border-color);
 }
 
-form label{
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-column: 1 / -1;
-    align-items: center;
+nav ul,
+nav li {
+  display: contents;
 }
 
-form button{
-    grid-column: 1 / -1;
+nav a {
+  flex: 1;
+  padding: 0.5em;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
 }
 
-
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-    gap: 1em;
+nav a.current,
+nav a:hover {
+  padding-bottom: 0.1em;
+  border-bottom: 0.4em solid var(--border-color);
 }
 
-.projects article {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.projects article p {
-    margin: 0;
-}
-
-.projects article > a:last-child {
-    margin-top: auto;
-}
-
-.projects article img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.projects h2 {
-    margin: 0;
-}
-
-h1 {
-    font-size: 4em;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    line-height: 1.1;
-    text-wrap: balance;
-}
-
-/* Resume page */
-
-.resume-page > p {
-    color: #777;
-    font-size: 1.2em;
-}
-
-.resume-page section {
-    margin-block: 2em;
-    padding: 1.5em;
-    background-color: color-mix(in oklch, var(--color-accent), canvas 95%);
-    border-left: 4px solid var(--color-accent);
-    border-radius: 8px;
-}
-
-.resume-page section h2 {
-    margin-top: 0;
-    margin-bottom: 1em;
-}
-
-.resume-page article {
-    margin-bottom: 1.5em;
-}
-
-.resume-page article:last-child {
-    margin-bottom: 0;
-}
-
-.resume-page h3 {
-    margin-bottom: 0.3em;
-}
-
-.resume-page article p {
-    margin-top: 0.3em;
-}
-
-.resume-page ul {
-    padding-left: 1.5em;
-}
-
-.resume-page li {
-    margin-block: 0.7em;
-}
-
-.resume-page li::marker {
-    color: var(--color-accent);
+nav a:hover {
+  border-bottom-color: var(--color-accent);
 }
 
 .color-scheme {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 80%;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
 }
 
 .color-scheme select {
-    font: inherit;
+  font: inherit;
 }
 
-#profile-stats dl {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  text-align: center;
-}
-
-#profile-stats dt {
-  grid-row: 1;
-  font-weight: bold;
-}
-
-#profile-stats dd {
-  grid-row: 2;
-  margin: 0;
-  font-size: 2rem;
-}
+/* ===== 首页：照片、自我介绍与虚拟形象 ===== */
 
 .home-intro {
   display: grid;
@@ -212,48 +112,88 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 8px;
 }
 
-@media (max-width: 700px) {
-  .home-intro {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
-  }
+/* ===== 首页：GitHub 统计 ===== */
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  text-align: center;
 }
 
-.projects > article {
+#profile-stats dt {
+  grid-row: 1;
+  font-weight: bold;
+}
+
+#profile-stats dd {
+  grid-row: 2;
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* ===== 项目卡片：首页与 Projects 页共用 ===== */
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+}
+
+.projects>article {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 4;
   gap: 0.8rem;
 }
 
-.projects > article > h2 {
+/* 第一行：标题 */
+.projects>article>h2 {
   grid-row: 1;
   margin: 0;
 }
 
-.projects > article > img,
-.projects > article > a:has(img) {
+/* 第二行：封面或包住封面的链接 */
+.projects>article>img,
+.projects>article>a:has(img) {
   grid-row: 2;
 }
 
-.projects > article > p {
-  grid-row: 3;
-  margin: 0;
-}
-
-.projects > article > a:last-child:not(:has(img)) {
-  grid-row: 4;
-  margin-top: 0;
-}
-
-.projects > article > img,
-.projects > article > a > img {
+.projects>article>img,
+.projects>article>a>img {
   display: block;
   width: 100%;
   height: 160px;
   object-fit: contain;
+  border-radius: 8px;
 }
+
+/* 第三行：描述和年份，同时兼容旧版直接使用 p 的卡片 */
+.projects>article>p,
+.projects>article>.project-details {
+  grid-row: 3;
+}
+
+.projects article p,
+.project-details p {
+  margin: 0;
+}
+
+.project-details .project-year {
+  margin-top: 0.5em;
+  font-family: Baskerville, Georgia, serif;
+  font-variant-numeric: oldstyle-nums;
+  color: inherit;
+  opacity: 0.65;
+}
+
+/* 第四行：项目入口 */
+.projects>article>a:last-child:not(:has(img)) {
+  grid-row: 4;
+  margin-top: 0;
+}
+
+/* ===== 首页：个人兴趣角落 ===== */
 
 .personal-corner {
   margin-top: 3rem;
@@ -267,7 +207,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 0.5rem;
 }
 
-.personal-corner > p {
+.personal-corner>p {
   margin: 0 0 1rem;
 }
 
@@ -297,4 +237,199 @@ h1, h2, h3, h4, h5, h6 {
 .corner-content p {
   text-align: center;
   font-size: 0.9rem;
+}
+
+/* ===== 联系表单 ===== */
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+form label {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  align-items: center;
+}
+
+form button {
+  grid-column: 1 / -1;
+}
+
+/* ===== 简历页面 ===== */
+
+.resume-page>p {
+  color: #777;
+  font-size: 1.2em;
+}
+
+.resume-page section {
+  margin-block: 2em;
+  padding: 1.5em;
+  background-color: color-mix(in oklch,
+      var(--color-accent),
+      canvas 95%);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 8px;
+}
+
+.resume-page section h2 {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.resume-page article {
+  margin-bottom: 1.5em;
+}
+
+.resume-page article:last-child {
+  margin-bottom: 0;
+}
+
+.resume-page h3 {
+  margin-bottom: 0.3em;
+}
+
+.resume-page article p {
+  margin-top: 0.3em;
+}
+
+.resume-page ul {
+  padding-left: 1.5em;
+}
+
+.resume-page li {
+  margin-block: 0.7em;
+}
+
+.resume-page li::marker {
+  color: var(--color-accent);
+}
+
+/* ===== Projects：年份饼图与图例 ===== */
+.searchBar {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-block: 1rem 2rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #8888;
+  border-radius: 8px;
+  background: Canvas;
+  color: CanvasText;
+}
+
+.searchBar:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.projects-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin-block: 2rem;
+}
+
+#projects-pie-plot {
+  display: block;
+  width: 18rem;
+  max-width: 100%;
+  flex: 0 1 18rem;
+  overflow: visible;
+}
+
+#projects-pie-plot path {
+  stroke: Canvas;
+  stroke-width: 0.5;
+}
+
+.projects-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  flex: 1 1 15rem;
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem;
+  list-style: none;
+  border: 1px solid #8885;
+  border-radius: 8px;
+}
+
+.projects-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.projects-legend .swatch {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border-radius: 3px;
+}
+#projects-pie-plot path {
+  cursor: pointer;
+  transition: opacity 180ms ease, stroke-width 180ms ease;
+}
+
+#projects-pie-plot path.is-muted {
+  opacity: 0.35;
+}
+
+#projects-pie-plot path.is-selected {
+  stroke: CanvasText;
+  stroke-width: 1.2;
+}
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.25;
+}
+
+#projects-pie-plot path:hover {
+  opacity: 1;
+}
+
+/* 点击筛选 */
+.projects-legend .legend-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.projects-legend .legend-button:hover {
+  background: color-mix(in oklch, var(--color-accent), Canvas 88%);
+}
+
+.projects-legend .legend-button.is-selected {
+  border-color: var(--color-accent);
+  background: color-mix(in oklch, var(--color-accent), Canvas 80%);
+  font-weight: 700;
+}
+
+.projects-legend .legend-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ===== 小屏幕布局 ===== */
+
+@media (max-width: 700px) {
+  .home-intro {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
 }

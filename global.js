@@ -1,7 +1,7 @@
 console.log("IT'S ALIVE!")
 
 function $$(selector, context = document) {
-    return Array.from(context.querySelectorAll(selector));
+  return Array.from(context.querySelectorAll(selector));
 }
 
 let navLinks = $$("nav a");
@@ -9,42 +9,42 @@ let navLinks = $$("nav a");
 const BASE_PATH = new URL("./", import.meta.url).pathname;
 
 let pages = [
-    {url:"",title:"Home"},
-    {url:"projects/", title:"Projects"},
-    {url:"contact/", title:"Contact"},
-    {url:"resume/", title:"Resume"},
-    {url:"https://github.com/xiaosiqaq-cjdl", title:"GitHub"}
+  { url: "", title: "Home" },
+  { url: "projects/", title: "Projects" },
+  { url: "contact/", title: "Contact" },
+  { url: "resume/", title: "Resume" },
+  { url: "https://github.com/xiaosiqaq-cjdl", title: "GitHub" }
 ];
 
 let nav = document.createElement("nav")
 document.body.prepend(nav);
 
-for(let p of pages){
-    let url = p.url;
+for (let p of pages) {
+  let url = p.url;
 
-    if(!url.startsWith("http")){
-        url = BASE_PATH + url;
-    }
+  if (!url.startsWith("http")) {
+    url = BASE_PATH + url;
+  }
 
-    let a = document. createElement("a");
-    a.href = url;
-    a.textContent = p.title;
+  let a = document.createElement("a");
+  a.href = url;
+  a.textContent = p.title;
 
-    if (a.host === location.host && a.pathname === location.pathname){
-        a.classList.add("current");
-    }
+  if (a.host === location.host && a.pathname === location.pathname) {
+    a.classList.add("current");
+  }
 
-    if (a.host !== location.host) {
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-    }
+  if (a.host !== location.host) {
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+  }
 
-    nav.append(a);
+  nav.append(a);
 }
 
 document.body.insertAdjacentHTML(
-    "afterbegin",
-    `
+  "afterbegin",
+  `
     <label class="color-scheme">
         Theme:
         <select>
@@ -59,24 +59,24 @@ document.body.insertAdjacentHTML(
 let select = document.querySelector(".color-scheme select");
 
 function setColorScheme(colorScheme) {
-    document.documentElement.style.setProperty(
-        "color-scheme",
-        colorScheme
-    );
-    select.value = colorScheme;
+  document.documentElement.style.setProperty(
+    "color-scheme",
+    colorScheme
+  );
+  select.value = colorScheme;
 }
 
 // 打开页面时，恢复之前保存的主题
 if ("colorScheme" in localStorage) {
-    setColorScheme(localStorage.colorScheme);
+  setColorScheme(localStorage.colorScheme);
 }
 
 // 用户切换选项时，修改主题并保存
 select.addEventListener("input", function (event) {
-    let colorScheme = event.target.value;
+  let colorScheme = event.target.value;
 
-    setColorScheme(colorScheme);
-    localStorage.colorScheme = colorScheme;
+  setColorScheme(colorScheme);
+  localStorage.colorScheme = colorScheme;
 });
 
 export async function fetchJSON(url) {
@@ -109,22 +109,23 @@ export function renderProjects(projects, containerElement, headingLevel = "h2") 
 
     article.innerHTML = `
       <${headingLevel}>
-        ${
-          projectURL
-            ? `<a href="${projectURL}">${project.title}</a>`
-            : project.title
-        }
+        ${projectURL
+        ? `<a href="${projectURL}">${project.title}</a>`
+        : project.title
+      }
       </${headingLevel}>
 
-      ${
-        projectURL
-          ? `<a href="${projectURL}">
+      ${projectURL
+        ? `<a href="${projectURL}">
                <img src="${imageURL}" alt="${project.title}">
              </a>`
-          : `<img src="${imageURL}" alt="">`
+        : `<img src="${imageURL}" alt="">`
       }
 
-      <p>${project.description}</p>
+      <div class="project-details">
+        <p>${project.description}</p>
+        <p class="project-year">${project.year}</p>
+      </div>
 
       ${projectURL ? `<a href="${projectURL}">View project →</a>` : ""}
     `;
