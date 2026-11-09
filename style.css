@@ -433,3 +433,42 @@ form button {
     text-align: center;
   }
 }
+
+#commit-tooltip {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  padding: 10px 14px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  background: Canvas;
+  color: CanvasText;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+  font-size: 14px;
+  white-space: pre-line;
+}
+
+#stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-block: 20px;
+}
+
+#stats p {
+  margin: 0;
+  padding: 12px 16px;
+  background: color-mix(in srgb, currentColor 5%, Canvas);
+  border: 1px solid color-mix(in srgb, currentColor 20%, Canvas);
+  border-radius: 8px;
+}
+
+#language-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+#language-breakdown p {
+  margin: 0;
+}
