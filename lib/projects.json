@@ -1,5 +1,12 @@
 [
   {
+    "title": "Project 3: EV Market Research",
+    "year": 2026,
+    "image": "./Project3/cover.png",
+    "description": "A group project using D3 to explore average electric vehicle prices across brands and luxury tiers from 2020–2026. My contributions included dynamic y-axis scaling, legend interactions, and page styling.",
+    "url": "https://gkao25.github.io/EV-Market-Research/"
+  },
+  {
     "title": "Project 2: Persuasive or Deceptive Visualization?",
     "year": 2026,
     "image": "./Project2/cover.png",
@@ -12,14 +19,8 @@
   "image": "./Project1/cover.png",
   "description": "Comparing predicted ultra-processed product shares across 17 food categories at Target, Walmart, and Whole Foods. A course project using GroceryDB data.",
   "url": "./Project1/DSC209_Project1.pdf"
- },
-  {
-    "title": "Error mollitia ipsa voluptatibus!",
-    "year": 2025,
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Facere fuga nostrum reiciendis earum accusantium voluptatem dolores cupiditate, quisquam officia voluptatum quod doloribus ipsum nesciunt delectus beatae accusamus! Soluta libero vitae accusantium eos aperiam voluptates corporis voluptatem est obcaecati?",
-    "url": ""
   },
+
   {
     "title": "Hic sed delectus rerum!",
     "year": 2025,
