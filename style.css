@@ -579,3 +579,31 @@ form button {
     min-height: auto;
   }
 }
+/* 只加宽 Meta 页面 */
+body.meta-page {
+  max-width: 1400px;
+  width: calc(100% - 3rem);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+/* 左侧保持适合阅读的宽度，剩余空间交给图表 */
+.meta-page #scrollytelling {
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 2rem;
+}
+
+/* 放大 SVG 内部的坐标轴刻度 */
+.meta-page #chart svg .tick text {
+  font-size: 15px;
+}
+
+@media (max-width: 700px) {
+  body.meta-page {
+    width: calc(100% - 2rem);
+  }
+
+  .meta-page #scrollytelling {
+    grid-template-columns: 1fr;
+  }
+}
