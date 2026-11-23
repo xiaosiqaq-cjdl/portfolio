@@ -377,7 +377,7 @@ steps
 steps
     .append("p")
     .text(d =>
-        `${d.author} contributed ${d.totalLines} lines represented in this dataset.`
+        `${d.totalLines} lines in the current codebase are attributed to this commit by ${d.author}.`
     );
 
 steps
