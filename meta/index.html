@@ -1,5 +1,6 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,44 @@
     <script type="module" src="../global.js"></script>
     <script type="module" src="./main.js"></script>
 </head>
+
 <body>
     <h1>Meta</h1>
     <p>Exploring the code and commit history of this website.</p>
-    <div id = "stats"></div>
-    <h2>Commits by time of day </h2>
-    <p>
-        Each circle represents a commit; its area shows the number of
-        current code lines attributed to it. Hover for details, or drag
-        from an empty area to select commits and compare code types.
-    </p>
-    <div id ="chart"></div>
-    <p id="selection-count">No commits selected</p>
-    <div id="language-breakdown"></div>
-    <div id = "commit-tooltip" hidden></div>
+    <div id="stats"></div>
+
+    <section id="scrollytelling">
+        <!-- 左侧：JS 自动生成提交记录 -->
+        <div id="commit-story"></div>
+
+        <!-- 右侧：滚动时保持可见的图表 -->
+        <div id="scatter-panel">
+            <h2>Commits by time of day</h2>
+
+            <p>
+                Each circle represents a commit; its area shows the number of
+                current code lines attributed to it. Hover for details, or drag
+                from an empty area to select commits and compare code types.
+            </p>
+
+            <div class="commit-filter">
+                <label for="commit-progress">Show commits until:</label>
+                <input id="commit-progress" type="range" min="0" max="100" step="0.1" value="100" />
+                <time id="commit-time"></time>
+            </div>
+
+            <div id="chart"></div>
+            <p id="selection-count">No commits selected</p>
+            <div id="language-breakdown"></div>
+        </div>
+    </section>
+
+    <!-- 文件图放在整个滚动叙事区域之后 -->
+    <h2>Code by file</h2>
+    <p>Each square represents one line of code, colored by file type.</p>
+    <div id="files"></div>
+
+    <div id="commit-tooltip" hidden></div>
 </body>
+
 </html>
